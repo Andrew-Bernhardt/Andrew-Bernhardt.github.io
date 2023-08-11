@@ -1,0 +1,86 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    height: 10vh;
+    width: 95%;
+    margin:auto;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    /* background: #00b0c7; */
+
+}
+header li {
+    font-size: 20px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.senior-photo-container,.nav-links,.download-resume-container {
+    height: 100%; /* this keeps objects from exceeding header height*/
+    display: flex;
+}
+
+.senior-photo-container {
+    /* border: 2px solid black; */
+    /* background-color: yellow; */
+    justify-content: flex-start;
+}
+.senior-photo {
+    /* object-fit: scale-down; */
+    border-radius: 50%;
+    
+}
+
+nav {
+    /* background-color: lightgreen; */
+    flex: auto;
+}
+.nav-links {
+    justify-content: space-around;
+    list-style: none;
+}
+.nav-link {
+    font-size: 18px;
+    text-decoration: none;
+
+}
+.download-resume-container {
+    /* background: blueviolet; */
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+}
+.download-resume-button {
+    height: 60%;
+    border-radius: 50%;
+    filter: drop-shadow(0px 5px 3px black)
+}
+.presentation {
+    width: 95%;
+    margin: auto;
+    display: flex;
+}
+
+
+@keyframes drop {
+    
+}
+
+
+@media screen and (max-width: 1024px) {
+    .presentation {
+        flex-direction: column;
+    }
+}
