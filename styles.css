@@ -1,0 +1,156 @@
+* {
+    /* this margine helps see stuff */
+    margin: 1px; 
+    padding: 0px;
+
+}
+body {
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background: #319b42;
+}
+.link-page {
+    text-decoration: none;
+    color: white;
+}
+.link-page::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #4b4f54;
+    display: block;
+    margin: auto;
+    transition:.1s;
+}
+.link-page:hover::after {
+    width: 100%;
+}
+
+header {
+    height: 10vh;
+    width: 95%;
+    margin:auto;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    /* background: #00b0c7; */
+}
+header nav {
+    /* background-color: blue; */
+    flex: auto; /* conforms to the group? */
+}
+header ul {
+    list-style: none;
+    font-size: 18px;
+    /* background: pink; */
+    display: flex;
+    justify-content: space-evenly;
+}
+header ul li {
+    display: inline-block;
+    text-align: center;
+    /* background-color: black; */
+}
+
+.senior-photo-container,.download-resume-container {
+    height: 100%; /* this keeps objects from exceeding header height*/
+    display: flex;
+    /* background-color: aqua; */
+}
+
+.senior-photo-container {
+    /* border: 2px solid black; */
+    /* background-color: yellow; */
+    justify-content: flex-start;
+}
+.senior-photo {
+    /* object-fit: scale-down; */
+    border-radius: 50%;
+}
+.download-resume-container {
+    /* background: blueviolet; */
+    justify-content: flex-end;
+    align-items: center;
+}
+.download-resume-button {
+    height: 60%;
+    border-radius: 50%;
+    filter: drop-shadow(0px 5px 3px black)
+}
+.jobs-grid {
+    display: grid;
+    width: 90%;
+    margin: auto;
+    border: 2px solid black;
+
+}
+.job-grid-item {
+    margin: 3px;
+    background-color: #4b9560;
+    border: 2px solid #ea7600;
+    border-radius: minmax(10px,25px);
+}
+
+.presentation {
+    /* background: #ea7600; */
+    width: 95%;
+    margin: auto;
+    display: flex;
+    /* align-content: center; */
+}
+
+
+@keyframes drop {
+    
+}
+
+
+@media(max-width: 600px) {
+    body {
+        /* //TODO Change width */
+    }
+    .presentation {
+        display: flex;
+        flex-direction: column;
+    }
+    header {
+        display: flex;
+    }
+    .senior-photo-container {
+        justify-content: flex-start;
+    }
+    .download-resume-button {
+        justify-content: flex-end;
+    }
+    nav {
+        position: fixed;
+        background: green;
+        height: 100%;
+        width: fit-content;
+        max-width: 50%;
+        text-align: left;
+        top: 0;
+        right: 0;
+        z-index: 2;
+    }
+    nav ul {
+        margin: 0px 3px 0px 3px;
+        /* align-self: center; */
+        border: 2px solid blue;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    nav ul li {
+        display: block; /* this creates a weird black bar on the right side */
+        display: flex;
+        text-align: center;
+        border: 2px solid #319b42;
+        /* overflow: hidden; */
+    }
+    nav ul li a {
+        /* width: fit-content; */
+        border: 2px solid black;
+    }
+}
