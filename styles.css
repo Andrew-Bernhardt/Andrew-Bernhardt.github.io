@@ -3,8 +3,9 @@
     --terminix-alt-green: #4b9560;
     --terminix-orange: #ea7600;
     --terminix-grey: #4b4f54;
-    --main-bg-color: var(--terminix-main-green);
-    
+    /* --main-bg-color: var(--terminix-main-green); */
+    --main-bg-color: rgb(109, 109, 223);
+
 }
 * {
     /* this margine helps see stuff */
@@ -15,7 +16,9 @@
 body {
     font-family: 'Oswald', sans-serif;
     font-family: 'Poppins', sans-serif;
-    background: var(--main-bg-color);
+    /* background: var(--main-bg-color); */
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(32,32,43,1) 0%, rgba(0,80,128,1) 100%, rgba(0,212,255,1) 100%);
 }
 .link-page {
     text-decoration: none;
@@ -90,37 +93,63 @@ header ul li {
 .jobs-grid {
     border: 2px solid black;
     display: grid;
-    width: 90%;
+    width: 70%;
     align-items: stretch;
     margin: auto;
-    grid-auto-columns: repeat(20%);
-    grid-auto-rows: minmax(fit-content,max-content);    
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    /* grid-auto-rows: minmax(fit-content,max-content);     */
     grid-gap: 5px;
 }
 .job-grid-item {
-    /* padding: 10px; */
+    background-color: white;
+    background-position: center;
+    background-size: contain;
     margin: 3px;
-    background-color: #4b9560;
-    border: 2px solid #ea7600;
     border-radius: 10px;
+    border: 0px solid black;
+    transition: all .2s ease-in-out;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 }
-.job-grid-item:nth-child(odd) {
-    background-color: rgb(20, 116, 116);
+.job-grid-item h3, .job-grid-item img {
+    margin: auto;
+    border: 2px solid black;
 }
-.job-grid-item:nth-child(even) {
-    background-color: rgb(59, 155, 155);
+.job-grid-item h3 {
+    background: white;
 }
-.job-grid-item-1 {
+.job-grid-item img {
+    width: calc(100% - 0px);
+    margin: auto;
+}
+.job-grid-item:hover {
+    transform: scale(1.1);
+}
+.grid-job-title {
     /* justify-self: center; */
+    color: white;
     align-self: start;
-    background-color: transparent !important;
-    grid-column: span 5;
+    background-color: transparent;
+    grid-column: span 2;
     height: fit-content;
     text-align: center;
 }
-.job-grid-item-2 {
+.grid-job-terminix {
+    background: url("./images/terminix-background.jpg");
+    background-position: center;
+    background-size: cover;
     grid-column: span 1;
-    grid-row: span 1;
+    grid-row: span 2;
+
+}
+.grid-job-capgemini {
+    background: url("./images/capgemini-background.jpg");
+    background-size: cover;
+}
+.grid-job-softdocs {
+    background: url("./images/softdocs-background.jpg");
+    background-size: cover;
 }
 .presentation {
     /* background: #ea7600; */
