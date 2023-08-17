@@ -166,7 +166,7 @@ header ul li {
     color: white; */
 }
 .grid-job-capgemini {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     background-image: url("./images/capgemini-background.jpg");
     background-size: cover;
     grid-row: span 5;
@@ -179,7 +179,7 @@ header ul li {
     opacity: 1;
 }
 .grid-job-capgemini:hover {
-    background-blend-mode: darken;
+    background-blend-mode: lighten;
 }
 .grid-job-softdocs {
     background-image: url("./images/softdocs-background.jpg");

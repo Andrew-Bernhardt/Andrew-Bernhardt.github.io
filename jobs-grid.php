@@ -22,7 +22,7 @@
             <img src="./images/softdocs.png"/>
             <h3>maybe make a gradient text here?</h3>
         </div>
-        <div class="job-prac">
+        <div title="Let's put the USC icon in top left and keep it up there" class="job-prac">
             <div class="blur-box">
                 <img src="./images/usc_logo.png" alt="">
                 <p>Hello</p>
