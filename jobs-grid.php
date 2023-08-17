@@ -20,6 +20,7 @@
         </div>
         <div class="job-grid-item grid-job-softdocs">
             <img src="./images/softdocs.png"/>
+            <h3>maybe make a gradient text here?</h3>
         </div>
         <div class="job-prac">
             <div class="blur-box">

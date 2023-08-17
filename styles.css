@@ -94,7 +94,7 @@ header ul li {
 }
 /* Grid is created in a 5 column structure */
 .jobs-grid {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: grid;
     width: min(70%,600px);
     align-items: stretch;
@@ -128,7 +128,7 @@ header ul li {
     padding: 10px;
     flex-direction: column;
 }
-.job-grid-item h3, .job-grid-item {
+.job-grid-item h3, .job-grid-item img{
     border: 1px solid black; /* still not sure what to do with this */
     border-radius: 10px;
 }
@@ -182,13 +182,20 @@ header ul li {
     background-blend-mode: darken;
 }
 .grid-job-softdocs {
-    background: url("./images/softdocs-background.jpg");
+    background-image: url("./images/softdocs-background.jpg");
+    background-color: rgba(138, 22, 153, .61);
     background-size: cover;
     grid-row: span 5;
+    transition: .5s ease-in-out;
 }
-
+.grid-job-softdocs:hover {
+    transition: .2s;
+    background-blend-mode: lighten;
+    cursor: pointer;
+}
 .grid-job-softdocs img {
-    background-color: purple;
+    /* #5a297c */
+    background-image:  linear-gradient(to right, #9660bd 50%, #5a297c 100%);
     padding-bottom: 10px;
 }
 .job-grid-tutoring {
