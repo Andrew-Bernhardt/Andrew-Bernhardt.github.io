@@ -1,0 +1,14 @@
+.jobs-flex {
+    display: flex;
+    /* width: 50%; */
+    margin: auto;
+}
+.jobs-flex-item {
+    background-color: white;
+    margin: 3px;
+    border-radius: 10px;
+    border: 0px solid black;
+    transition: all .2s ease-in-out;
+    padding: 10px;
+    flex-direction: column;
+}

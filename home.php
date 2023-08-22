@@ -10,7 +10,7 @@
         <section class="presentation">
             <div class="introduction">
                 <div class="intro-text">
-                    <h1>Laptop for the future</h1>
+                    <h1>Lapstop for the future</h1>
                     <p>
                         The new 14 inch bezelless display is sick and 4k
                     </p>

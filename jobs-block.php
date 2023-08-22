@@ -7,7 +7,7 @@
 <body>
     <?php include 'header.php' ?>
 
-    <div class="jobs-grid">
+    <div class="jobs-flex">
         <div class="job-grid-item job-grid-expand-on-hover grid-job-title"><h1>Past Work</h1></div>
         <div class="job-grid-item grid-job-terminix">
             <div class="job-info">
@@ -33,5 +33,6 @@
         </div>
         
     </div>
+
 </body>
 </html>

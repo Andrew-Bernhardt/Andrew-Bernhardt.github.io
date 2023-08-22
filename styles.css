@@ -56,14 +56,16 @@ header nav {
 }
 header ul {
     list-style: none;
-    font-size: 18px;
+    font-size: 21px;
     /* background: pink; */
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 header ul li {
     display: inline-block;
     text-align: center;
+    margin: 25px;
+    border-radius: 15px;
     /* background-color: black; */
 }
 
@@ -96,6 +98,7 @@ header ul li {
 .jobs-grid {
     /* border: 2px solid black; */
     display: grid;
+    /* width: 60%; */
     width: min(70%,600px);
     align-items: stretch;
     margin: auto;
@@ -205,10 +208,6 @@ header ul li {
 .job-grid-tutoring:hover {
     background: rgba(0,212,255,.2);
 }
-.job-grid-tutoring:hover::after {
-    content: "Peer Tutor!";
-    color: white;
-}
 .presentation {
     /* background: #ea7600; */
     width: 95%;
@@ -239,9 +238,13 @@ header ul li {
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row; 
     align-items: center;
     justify-content: center;
+    transition: all .2s ease-in-out;
+}
+.blur-box p, .blur-box img {
+    margin: 5px;
 }
 .blur-box:hover {
     opacity: 100;
@@ -255,7 +258,7 @@ header ul li {
 }
 .job-prac p {
     font-size: 20px;
-    text-align: center;
+    /* text-align: center;  */
     align-items: center;
     color: white;
 }
