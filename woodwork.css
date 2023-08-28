@@ -1,0 +1,31 @@
+ * {
+    /* padding: 2px; */
+ }
+ .wood-frame {
+    display: flex;
+    flex-direction: column; 
+    border: 2px solid red;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+ }
+ .wood-bar {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* justify-items: center; */
+    background-image: url('images/wood-background.jpg');
+    height: 40px;
+    width: 800px;
+ }
+ .letter-container {
+    font-size: 32px;
+    text-align: center;
+    border: 2px solid white;
+    width: 31px;
+    height: 36px;
+    color: white;
+ }
+ 
