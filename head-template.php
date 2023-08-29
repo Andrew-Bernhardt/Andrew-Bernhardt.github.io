@@ -4,4 +4,3 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" type="text/css" href="style-jobs-flex.css">
-    <link rel="stylesheet" type="text/css" href="style-jobs-block.css">
