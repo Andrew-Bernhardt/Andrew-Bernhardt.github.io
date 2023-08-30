@@ -17,28 +17,48 @@
         <div class="wood-btn" id="add-text-btn">ADD TEXT</div>
         <input type="text" id="custom-text">
     </div>
-    <div class="wood-frame">
-        <div class="wood-bar resizable-draggable">LET US NOT</div>
+    <div class="wood-frame ">
+        <div class="wood-bar draggable-resizable">
+            <div class="handle"></div>
+            LET US NOT
+        </div>
 
     </div>
     <script>
-        var $woodBar = $(`<div class="wood-bar resizable-draggable"></div>`);
+        var $woodBar = $(`  <div class="wood-bar draggable-resizable">
+                                <div class="handle"></div>
+                                LET US NOT
+                            </div>`);
         // TODO: ADD UNDO
+        function makeResizableAndDraggable(element) {
+            element.draggable({
+                handle: ".handle",
+                axis: "x"
+            });
 
-        //This doesn't really want to work
-        //Make div resizable and draggable
+            element.resizable({
+                handles: "se",
+                containment: ".draggable-container"
+            });
+        }
+        // Make current div's resizable and draggable
         $(document).ready(function() {
-            $( ".resizable-draggable" ).resizable();
-            $( ".resizable-draggable" ).draggable({
-                axis: "x",
-                containment: "parent"
+            $(".wood-bar").draggable({
+                handle: ".handle",
+                axis: "x"
+            });
+            $(".wood-bar").resizable({
+                handles: "se",
+                // containment: ".wood-bar"
             });
         });
         //Add Blank Wood Row
         $(document).ready(function() {
             $("#add-wood-btn").click(function(){
                 console.log("Adding wood-frame");
-                $(".wood-frame").append( $woodBar.clone() );
+                $temp =$woodBar.clone()
+                $(".wood-frame").append( $temp );
+                makeResizableAndDraggable($temp);
             })
         });
         //Remove the last wood row
@@ -54,9 +74,10 @@
             $("#remove-all-wood-btn").click(function(){
                 if($(".wood-frame").children().length==0) {
                     console.warn("No wood-bars to be cleared!")
-                    return;
+                    return false;
                 }
-                confirm("Are you sure you want to remove rows?") 
+                if(!confirm("Are you sure you want to remove rows?"))
+                    return false;
                 console.log("Removing ALL wood-frame");
                 $(".wood-frame").empty();
             })
@@ -86,17 +107,6 @@
                 }
             });
         });
-        // //Make resizable divs
-        // $(document).ready(function() {
-        //     $(".resize").resizable();
-        // });
-        // //Make draggable divs
-        // $(document).ready(function() {
-        //     $(".draggable").draggable({
-        //         axis: "x", // Restrict dragging to the horizontal axis
-        //         containment: ".wood-frame"
-        //     });
-        // });
     </script>
 </body>
 </html>

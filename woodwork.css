@@ -63,7 +63,25 @@
 .wood-btn:hover {
    cursor:pointer;
 }
-.resizable-draggable {
-   resize: vertical;
-   overflow: auto;
+.draggable-resizable {
+   resize: horizontal;
+   overflow: hidden;
+   position: relative;
+}
+.draggable-element {
+   position: absolute;
+   width: 100px;
+   height: 100px;
+   background-color: #e0e0e0;
+   border: 1px solid #999;
+   /* cursor: move; */
+}
+.handle {
+   width: 100%;
+   height: 100%;
+   background-color: rgba(255, 255, 255, 0.2);
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   cursor: pointer;
 }
