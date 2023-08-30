@@ -41,6 +41,24 @@
                 containment: ".draggable-container"
             });
         }
+        
+
+        // Double Click to center
+        // $(document).ready(function() {
+        //     $(".wood-bar").on( "dblclick", function() {
+        //         console.log($(this));
+        //         alert("HI");
+        //         $(this).css({})
+        //     });
+        // });
+        // Another try
+        $(document).ready(function() {
+            var centerThis = $(".wood-bar");
+            centerThis.on( "dblclick", function() {
+                console.log($(this))
+                centerThis.toggleClass( "dbl");
+            });
+        });
         // Make current div's resizable and draggable
         $(document).ready(function() {
             $(".wood-bar").draggable({
@@ -52,7 +70,7 @@
                 // containment: ".wood-bar"
             });
         });
-        //Add Blank Wood Row
+        // Add Blank Wood Row
         $(document).ready(function() {
             $("#add-wood-btn").click(function(){
                 console.log("Adding wood-frame");
@@ -61,7 +79,7 @@
                 makeResizableAndDraggable($temp);
             })
         });
-        //Remove the last wood row
+        // Remove the last wood row
         $(document).ready(function() {
             $("#remove-wood-btn").click(function(){
                 console.log("Removing wood-frame");
@@ -69,7 +87,7 @@
                 lastWoodRow.remove();
             })
         });
-        //Remove all
+        // Remove all
         $(document).ready(function() {
             $("#remove-all-wood-btn").click(function(){
                 if($(".wood-frame").children().length==0) {
@@ -82,7 +100,7 @@
                 $(".wood-frame").empty();
             })
         });
-        //Custom Text Wood Row
+        // Custom Text Wood Row
         $(document).ready(function () {
             $("#add-text-btn").click(function() {
                 var inputString = $("#custom-text").val().trim();

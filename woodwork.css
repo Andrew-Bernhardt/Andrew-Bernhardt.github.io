@@ -11,9 +11,14 @@
    align-items: center;
    align-content: center;
 }
+.wood-frame.dbl {
+   justify-content: center;
+   align-items: center;
+   background: blue;
+}
 
 .wood-bar {
-   border: 2px solid black;
+   /* border: 2px solid black; */
    display: flex;
    flex-direction: row;
    justify-content: center;
@@ -26,8 +31,13 @@
    text-align: center;
    color: white;
    font-family: monospace;
+   border: 1px solid black;
+   align-self: center;
 }
-
+.wood-bar.dbl {
+   align-self: center;
+   background: blue;
+}
 .letter-container {
 
    display: flex;
@@ -73,7 +83,6 @@
    width: 100px;
    height: 100px;
    background-color: #e0e0e0;
-   border: 1px solid #999;
    /* cursor: move; */
 }
 .handle {
@@ -83,5 +92,6 @@
    position: absolute;
    bottom: 0;
    right: 0;
+   margin: auto;
    cursor: pointer;
 }
