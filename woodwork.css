@@ -63,10 +63,7 @@
 .wood-btn:hover {
    cursor:pointer;
 }
-.resize {
-   resize: horizontal;
+.resizable-draggable {
+   resize: vertical;
    overflow: auto;
-}
-.draggable {
-
 }

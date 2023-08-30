@@ -18,12 +18,22 @@
         <input type="text" id="custom-text">
     </div>
     <div class="wood-frame">
-        <div class="wood-bar resize draggable">LET US NOT</div>
+        <div class="wood-bar resizable-draggable">LET US NOT</div>
 
     </div>
     <script>
-        var $woodBar = $(`<div class="wood-bar resize draggable"></div>`);
+        var $woodBar = $(`<div class="wood-bar resizable-draggable"></div>`);
+        // TODO: ADD UNDO
 
+        //This doesn't really want to work
+        //Make div resizable and draggable
+        $(document).ready(function() {
+            $( ".resizable-draggable" ).resizable();
+            $( ".resizable-draggable" ).draggable({
+                axis: "x",
+                containment: "parent"
+            });
+        });
         //Add Blank Wood Row
         $(document).ready(function() {
             $("#add-wood-btn").click(function(){
@@ -76,17 +86,17 @@
                 }
             });
         });
-        //Make resizable divs
-        $(document).ready(function() {
-            $(".resize").resizable();
-        });
-        //Make draggable divs
-        $(document).ready(function() {
-            $(".draggable").draggable({
-                axis: "x", // Restrict dragging to the horizontal axis
-                containment: ".wood-frame"
-            });
-        });
+        // //Make resizable divs
+        // $(document).ready(function() {
+        //     $(".resize").resizable();
+        // });
+        // //Make draggable divs
+        // $(document).ready(function() {
+        //     $(".draggable").draggable({
+        //         axis: "x", // Restrict dragging to the horizontal axis
+        //         containment: ".wood-frame"
+        //     });
+        // });
     </script>
 </body>
 </html>
