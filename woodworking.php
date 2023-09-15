@@ -120,8 +120,8 @@
 
             inputField.keyup(function(event) {
                 if (event.key === "Enter") {
-                event.preventDefault();
-                submitButton.click();
+                    event.preventDefault();
+                    submitButton.click();
                 }
             });
         });
