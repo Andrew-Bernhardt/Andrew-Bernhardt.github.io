@@ -1,49 +1,62 @@
-function getBibleVerse(passage, line_length=20) {
-    API_KEY = "8fc4cbbd1436cbc0318d80962472153a051c3174"
-    API_URL = "https://api.esv.org/v3/passage/text/" + passage
-    $.ajax({
-        url: API_URL, // Replace with your API endpoint URL
-        type: 'GET', // HTTP request method (GET in this case)
-        headers: {
-            'Authorization': '8fc4cbbd1436cbc0318d80962472153a051c3174', // Replace with your authorization token if needed
-            // Add other headers as needed
-        },
-        dataType: 'json', // Expected data type (json in this case)
-        success: function (data, status, xhr) {
-
-            console.log('Success:', data);
-            return data;
-        },
-        error: function (xhr, status, error) {
-            // Handle errors here
-            console.error('Error:', status, error);
-        }
-    });
-
-    params = {
-        'q': passage,
-        'include-headings': false,
-        'include-footnotes': false,
-        'include-verse-numbers': false,
-        'include-short-copyright': false,
-        'include-passage-references': false,
-        'line-length': line_length
-    }
-}
-
-$(function () {
-    $('#generate-btn').on('click', function () {
-        console.log("clicking generate!");
-        getBibleVerse("Gal 6:9");
-    })
-});
-
-
+import { getBibleVerseRandom, getBibleVerseESV } from './bible-verse-api-handler.js';
 var $woodBar = $(`  <div class="wood-bar draggable-resizable">
                                 <div class="handle"></div>
                                 
                             </div>`);
-// TODO: ADD UNDO
+
+
+// Generate Random Verse
+$(document).ready(async function () {
+    $('#generate-btn').on('click', function () {
+        console.log("Generating...");
+
+        getBibleVerseESV("Gal 6:9").done(
+            function (data) {
+                let verse = data['passages'][0].trim()
+                console.log(verse);
+                writeTextToWood(verse);
+            }).fail(function () {
+                console.log("booooo");
+            });
+
+    })
+});
+async function writeTextToWood(words) {
+    // Clear the canvas and write new
+    emptyWood();
+    var list = cutWords(words);
+    list.forEach((sentence) => writeWoodLine(sentence));
+}
+async function writeWoodLine(inputString) {
+    var $temp = $woodBar.clone();
+    $temp.find('.handle').text(inputString.toUpperCase());
+    $(".wood-frame").append($temp);
+    makeResizableAndDraggable($temp);
+}
+// Cut up strings and make them 20 or less characters
+// Parameter str comes in trimmed
+function cutWords(str, maxChar = 20) {
+    var list = [];
+    let a = "";
+    let i = str.length - 1;
+    while (i > 0) {
+        // If string has less than maxChar to be indexed
+        if(str.length<maxChar-1) {
+            list.push(str.slice(0,str.length));
+            return list;
+        }
+        let j = Math.min(maxChar-1,str.length);
+        //Start at maxChar length and bring down until we find a space
+        while (str[j] != ' ') {
+            j--;
+        }
+        list.push(str.slice(0,j));
+        str = str.slice(j);
+    }
+    return list;
+}
+
+// Resizable and Draggable
 function makeResizableAndDraggable($element) {
     $element.draggable({
         handle: ".handle",
@@ -63,14 +76,14 @@ function makeResizableAndDraggable($element) {
 //         $(this).css({})
 //     });
 // });
-// Another try
-$(document).ready(function () {
-    var centerThis = $(".wood-bar");
-    centerThis.on("dblclick", function () {
-        console.log($(this))
-        centerThis.toggleClass("dbl");
-    });
-});
+// Double click - Another try
+// $(document).ready(function () {
+//     var centerThis = $(".wood-bar");
+//     centerThis.on("dblclick", function () {
+//         console.log($(this))
+//         centerThis.toggleClass("dbl");
+//     });
+// });
 // Make current div's resizable and draggable
 $(document).ready(function () {
     $(".wood-bar").draggable({
@@ -101,6 +114,9 @@ $(document).ready(function () {
     })
 });
 // Remove all
+function emptyWood() {
+    $(".wood-frame").empty();
+}
 $(document).ready(function () {
     $("#remove-all-wood-btn").click(function () {
         if ($(".wood-frame").children().length == 0) {
@@ -110,7 +126,7 @@ $(document).ready(function () {
         if (!confirm("Are you sure you want to remove rows?"))
             return false;
         console.log("Removing ALL wood-frame");
-        $(".wood-frame").empty();
+        emptyWood();
     })
 });
 // Custom Text Wood Row
@@ -121,12 +137,7 @@ $(document).ready(function () {
             console.error("Cannot submit empty field")
             return false;
         }
-        console.log("Adding custom wood-frame with text: " + inputString);
-        $temp = $woodBar.clone();
-        console.log($temp);
-        $temp.find('.handle').text(inputString.toUpperCase());
-        $(".wood-frame").append($temp);
-        makeResizableAndDraggable($temp);
+        writeWoodLine(inputString);
 
         //Reset text in inputfield
         $("#custom-text").val('');
