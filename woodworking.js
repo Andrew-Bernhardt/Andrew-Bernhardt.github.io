@@ -32,6 +32,7 @@ async function writeWoodLine(inputString) {
     $temp.find('.handle').text(inputString.toUpperCase());
     $(".wood-frame").append($temp);
     makeResizableAndDraggable($temp);
+    resizeRow($temp);
 }
 // Cut up strings and make them 20 or less characters
 // Parameter str comes in trimmed
@@ -56,6 +57,25 @@ function cutWords(str, maxChar = 20) {
     return list;
 }
 
+function resizeRow($element, extraWidth=300) {
+    extraWidth = Math.floor(Math.random() * extraWidth) + 200;
+    var text = $element.find(".handle").text();
+
+    var $tempSpan = $('<span>')
+    .css({
+      whiteSpace: 'nowrap',
+      visibility: 'hidden',
+      position: 'absolute',
+    })
+    .text(text);
+    $('body').append($tempSpan);
+    var textWidth = $tempSpan[0].getBoundingClientRect().width + extraWidth;
+
+    // Remove the temporary span element
+    $tempSpan.remove();
+
+    $element.css("width", textWidth+'px');
+}
 // Resizable and Draggable
 function makeResizableAndDraggable($element) {
     $element.draggable({
