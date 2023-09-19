@@ -107,12 +107,12 @@ function realignVerse() {
     writeTextToWood(currentVerse, currentVerseTitle, rand);
 }
 // Randomly Realign Button Properties
-// $(document).ready(function () {
-//     $("#random-realign-btn").click(function () {
-//         console.log("Realigning Verse...");
-//         realignVerse()
-//     })
-// });
+$(document).ready(function () {
+    $("#random-realign-btn").click(function () {
+        console.log("Realigning Verse...");
+        realignVerse()
+    })
+});
 // Resizable and Draggable
 function makeResizableAndDraggable($element) {
     $element.draggable({
@@ -174,30 +174,30 @@ $(document).ready(function () {
 function emptyWood() {
     $(".wood-frame").empty();
 }
-// $(function () {
-//     $("#remove-all-wood-btn").click(function () {
-//         if ($(".wood-frame").children().length == 0) {
-//             console.warn("No wood-bars to be cleared!")
-//             return false;
-//         }
-//         if (!confirm("Are you sure you want to remove rows?"))
-//             return false;
-//         console.log("Removing ALL wood-frame");
-//         emptyWood();
-//     })
-// });
+$(function () {
+    $("#remove-all-wood-btn").click(function () {
+        if ($(".wood-frame").children().length == 0) {
+            console.warn("No wood-bars to be cleared!")
+            return false;
+        }
+        if (!confirm("Are you sure you want to remove rows?"))
+            return false;
+        console.log("Removing ALL wood-frame");
+        emptyWood();
+    })
+});
 // Random Row Resize
-// $(function () {
-//     $('#random-resize-btn').click(function () {
-//         console.log("Resize Clicked");
-//         $('.wood-frame').find('.wood-bar').each(function (index, element) {
-//             // Convert this element to a jquery $(element) in order to
-//             // use the method resizeRow which calls .find() which only 
-//             // works on JQuery elements. So convert it first!
-//             resizeRow($(element));
-//         })
-//     })
-// })
+$(function () {
+    $('#random-resize-btn').click(function () {
+        console.log("Resize Clicked");
+        $('.wood-frame').find('.wood-bar').each(function (index, element) {
+            // Convert this element to a jquery $(element) in order to
+            // use the method resizeRow which calls .find() which only 
+            // works on JQuery elements. So convert it first!
+            resizeRow($(element));
+        })
+    })
+})
 // Custom Text Wood Row
 $(document).ready(function () {
     $("#add-text-btn").click(function () {
