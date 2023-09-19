@@ -12,17 +12,27 @@
     <?php include 'header.php' ?>
     <div class="btn-container">
         <div class="wood-btn" id="generate-btn">GENERATE</div>
-        <div class="wood-btn" id="add-wood-btn">ADD WOOD ROW</div>
+        <div class="wood-btn" id="random-verse">RANDOM VERSE</div>
+        <!-- <div class="wood-btn" id="add-wood-btn">ADD WOOD ROW</div> -->
         <div class="wood-btn" id="remove-wood-btn">REMOVE LAST WOOD ROW</div>
         <div class="wood-btn" id="remove-all-wood-btn">REMOVE ALL</div>
         <div class="wood-btn" id="add-text-btn">ADD TEXT</div>
         <input type="text" id="custom-text">
     </div>
-    <div class="wood-frame ">
+    <div class="wood-frame">
         <div class="wood-bar draggable-resizable">
-            <div class="handle">BLANK</div>
+            <div class="handle">BIBLE VERSE WOODWORKING</div>
         </div>
+    </div>
+    <div class="styling-absolute">
+        <div class="wood-style-controls">
+            <div class="style-btn" id="random-resize-btn">RESIZE</div>
+            <div class="style-btn" id="random-realign-btn">REALIGN</div>
+            <div class="style-btn in-dev" id="lighten-btn">LIGHTEN</div>
+            <div class="style-btn in-dev" id="darken-btn">DARKEN</div>
+            <div class="style-btn in-dev">LOCK ROW</div>
 
+        </div>
     </div>
 </body>
 </html>
