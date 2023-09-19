@@ -31,7 +31,6 @@
             <div class="style-btn in-dev" id="lighten-btn">LIGHTEN</div>
             <div class="style-btn in-dev" id="darken-btn">DARKEN</div>
             <div class="style-btn in-dev">LOCK ROW</div>
-
         </div>
     </div>
 </body>
