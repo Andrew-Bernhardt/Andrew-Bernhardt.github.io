@@ -1,18 +1,22 @@
-import { getBibleVerseRandom, getBibleVerseESV } from './bible-verse-api-handler.js';
+import { randomVerse, getBibleVerseRandom, getBibleVerseESV } from './bible-verse-api-handler.js';
 var $woodBar = $(`  <div class="wood-bar draggable-resizable">
                                 <div class="handle"></div>
                                 
                             </div>`);
+var currentVerse = "";
+var currentVerseTitle = "";
 
 
-// Generate Random Verse
+// Generate ESV Verse
 $(document).ready(async function () {
     $('#generate-btn').on('click', function () {
         console.log("Generating...");
-
-        getBibleVerseESV("Gal 6:9").done(
+        var customVerse = "";
+        customVerse = $("#custom-verse").val().trim();
+        getBibleVerseESV(customVerse).done(
             function (data) {
                 let verse = data['passages'][0].trim()
+                currentVerse = verse;
                 console.log(verse);
                 writeTextToWood(verse);
             }).fail(function () {
@@ -21,18 +25,39 @@ $(document).ready(async function () {
 
     })
 });
-async function writeTextToWood(words) {
+// Generate Random Verse
+$(document).ready(async function () {
+    $('#random-verse').on('click', function () {
+        console.log("Generating random verse...");
+        randomVerse().done(
+            function (data) {
+                console.log(data);
+                let verse = data[0]['text'].trim();
+                let title = data[0]['bookname'] + " " + data[0]['chapter'] + ":" + data[0]['verse'];
+                currentVerse = verse;
+                currentVerseTitle = title;
+                writeTextToWood(verse, title);
+            }).fail(function () {
+                console.log("booooo");
+            });
+
+    })
+});
+async function writeTextToWood(verse, title = "404", maxChar = 20) {
     // Clear the canvas and write new
+    console.log("Max Characters: " + maxChar);
     emptyWood();
-    var list = cutWords(words);
+    writeWoodLine(title, true);
+    var list = cutWords(verse, maxChar);
     list.forEach((sentence) => writeWoodLine(sentence));
 }
-async function writeWoodLine(inputString) {
+async function writeWoodLine(inputString, title = false) {
     var $temp = $woodBar.clone();
     $temp.find('.handle').text(inputString.toUpperCase());
     $(".wood-frame").append($temp);
     makeResizableAndDraggable($temp);
     resizeRow($temp);
+    if (title) $temp.addClass("verse-title");
 }
 // Cut up strings and make them 20 or less characters
 // Parameter str comes in trimmed
@@ -42,40 +67,52 @@ function cutWords(str, maxChar = 20) {
     let i = str.length - 1;
     while (i > 0) {
         // If string has less than maxChar to be indexed
-        if(str.length<maxChar-1) {
-            list.push(str.slice(0,str.length));
+        if (str.length < maxChar - 1) {
+            list.push(str.slice(0, str.length));
             return list;
         }
-        let j = Math.min(maxChar-1,str.length);
+        let j = Math.min(maxChar - 1, str.length);
         //Start at maxChar length and bring down until we find a space
         while (str[j] != ' ') {
             j--;
         }
-        list.push(str.slice(0,j));
+        list.push(str.slice(0, j));
         str = str.slice(j);
     }
     return list;
 }
-
-function resizeRow($element, extraWidth=300) {
+// Resize a given row
+function resizeRow($element, extraWidth = 300) {
     extraWidth = Math.floor(Math.random() * extraWidth) + 200;
-    var text = $element.find(".handle").text();
+    var text = $element.find('.handle').text();
 
     var $tempSpan = $('<span>')
-    .css({
-      whiteSpace: 'nowrap',
-      visibility: 'hidden',
-      position: 'absolute',
-    })
-    .text(text);
+        .css({
+            whiteSpace: 'nowrap',
+            visibility: 'hidden',
+            position: 'absolute',
+        })
+        .text(text);
     $('body').append($tempSpan);
     var textWidth = $tempSpan[0].getBoundingClientRect().width + extraWidth;
 
     // Remove the temporary span element
     $tempSpan.remove();
 
-    $element.css("width", textWidth+'px');
+    $element.css("width", textWidth + 'px');
 }
+// Randomly Realign Row
+function realignVerse() {
+    var rand = Math.floor(Math.random() * 30) + 8;
+    writeTextToWood(currentVerse, currentVerseTitle, rand);
+}
+// Randomly Realign Button Properties
+$(document).ready(function () {
+    $("#random-realign-btn").click(function () {
+        console.log("Realigning Verse...");
+        realignVerse()
+    })
+});
 // Resizable and Draggable
 function makeResizableAndDraggable($element) {
     $element.draggable({
@@ -119,7 +156,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#add-wood-btn").click(function () {
         console.log("Adding wood-frame");
-        $temp = $woodBar.clone()
+        var $temp = $woodBar.clone()
         $(".wood-frame").append($temp);
         makeResizableAndDraggable($temp);
         console.log($temp);
@@ -137,7 +174,7 @@ $(document).ready(function () {
 function emptyWood() {
     $(".wood-frame").empty();
 }
-$(document).ready(function () {
+$(function () {
     $("#remove-all-wood-btn").click(function () {
         if ($(".wood-frame").children().length == 0) {
             console.warn("No wood-bars to be cleared!")
@@ -149,6 +186,18 @@ $(document).ready(function () {
         emptyWood();
     })
 });
+// Random Row Resize
+$(function () {
+    $('#random-resize-btn').click(function () {
+        console.log("Resize Clicked");
+        $('.wood-frame').find('.wood-bar').each(function (index, element) {
+            // Convert this element to a jquery $(element) in order to
+            // use the method resizeRow which calls .find() which only 
+            // works on JQuery elements. So convert it first!
+            resizeRow($(element));
+        })
+    })
+})
 // Custom Text Wood Row
 $(document).ready(function () {
     $("#add-text-btn").click(function () {

@@ -11,6 +11,7 @@
    align-items: center;
    align-content: center;
 }
+
 .wood-frame.dbl {
    justify-content: center;
    align-items: center;
@@ -34,10 +35,12 @@
    border: 1px solid black;
    align-self: center;
 }
+
 .wood-bar.dbl {
    align-self: center;
    background: blue;
 }
+
 .letter-container {
 
    display: flex;
@@ -51,36 +54,54 @@
    height: 36px;
    color: white;
 }
+
 .btn-container {
    display: flex;
    justify-content: center;
 }
+
 .wood-btn {
-   background: white;
+   /* background: white; */
    padding: 0px 10px 0px 10px;
    border-radius: 15px;
    user-select: none;
+   text-align: center;
+   width: fit-content;
 }
+
 #generate-btn {
    background: yellow;
 }
+
+#random-verse {
+   background: white;
+}
+
 #add-wood-btn {
    background: green;
 }
+
 #remove-wood-btn {
    background: rgb(212, 69, 69);
 }
+
 #remove-all-wood-btn {
    background: rgb(189, 32, 32);
 }
-.wood-btn:hover {
-   cursor:pointer;
+#add-text-btn {
+   background: white;
 }
+
+.wood-btn:hover {
+   cursor: pointer;
+}
+
 .draggable-resizable {
    resize: horizontal;
    overflow: hidden;
    position: relative;
 }
+
 .draggable-element {
    position: absolute;
    width: 100px;
@@ -88,6 +109,7 @@
    background-color: #e0e0e0;
    /* cursor: move; */
 }
+
 .handle {
    width: 100%;
    height: 100%;
@@ -97,4 +119,77 @@
    right: 0;
    margin: auto;
    cursor: pointer;
+}
+
+.style-btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: white;
+   padding: 0px 10px 0px 10px;
+   border-radius: 15px;
+   user-select: none;
+   text-align: center;
+   vertical-align: center;
+   cursor: pointer;
+   width: 100%;
+}
+
+.styling-flex {
+   display: flex;
+   justify-content: center;
+}
+
+.styling-absolute {
+   position: absolute;
+   top: 15vh;
+   left: 20px;
+}
+
+.in-dev {
+   background-image: repeating-linear-gradient(45deg,
+         rgba(255, 255, 255, .5) 0px,
+         rgba(255, 255, 255, .5) 10px,
+         rgba(255,0,0, .5) 10px,
+         rgba(255,0,0, .5) 20px
+      );
+}
+
+.striped {
+   background-image: repeating-linear-gradient(45deg,
+         #553c9a,
+         #553c9a 25px,
+         #b393d3 25px,
+         #b393d3 50px);
+}
+
+.wood-style-controls {
+   width: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+#random-realign-btn {
+   background: green;
+}
+
+#random-resize-btn {
+   background: lightblue;
+}
+
+#lighten-btn {
+   /* background-color: blue; */
+   background-color: rgb(59, 183, 187);
+   background-blend-mode: lighten;
+}
+
+#darken-btn {
+   background-color: rgb(59, 183, 187);
+   /* background-color: rgba(35, 108, 110, 1); */
+   background-blend-mode: darken;
+}
+.verse-title {
+   font-weight: bold;
+   color: black
 }

@@ -16,7 +16,7 @@ export function getBibleVerseRandom() {
     });
 }
 
-export function getBibleVerseESV(passage) {
+export function getBibleVerseESV(passage="Gal 6:9") {
     let API_KEY = "8fc4cbbd1436cbc0318d80962472153a051c3174"
     let API_URL = "https://api.esv.org/v3/passage/text/"
     return $.ajax({
@@ -31,7 +31,7 @@ export function getBibleVerseESV(passage) {
             'include-footnotes': false,
             'include-verse-numbers': false,
             'include-short-copyright': false,
-            'include-passage-references': false
+            // 'include-passage-references': false
         },
         success: function (data, status, xhr) {
             console.debug("Successful API Call");
@@ -39,5 +39,24 @@ export function getBibleVerseESV(passage) {
         error: function (xhr, status, error) {
             console.error('Error:', status, error);
         }
+    });
+}
+
+export function randomVerse() {
+    $("#spinner").show();
+    return $.ajax({
+      url: "https://labs.bible.org/api/?passage=random&type=json&callback=myCallback", 
+      crossDomain: true,
+      dataType: 'jsonp',
+      success: function(result){
+         $("#newQuote")
+           .html('<strong>'+
+                 result[0].bookname+
+                 ' ' + result[0].chapter +
+                 ':' + result[0].verse +
+                 '</strong> ' +
+                 result[0].text);
+        $("#spinner").hide();
+      }
     });
 }
