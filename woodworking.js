@@ -112,8 +112,8 @@ function resizeRow($element, extraWidth = 300) {
         })
         .text(text);
     $('body').append($tempSpan);
+    console.log($tempSpan[0].getBoundingClientRect().width);
     var textWidth = $tempSpan[0].getBoundingClientRect().width + extraWidth;
-
     // Remove the temporary span element
     $tempSpan.remove();
 
@@ -260,8 +260,11 @@ function shortenRow($element) {
     console.log("TEXT WIDTH SPAN: " + textWidth);
     console.log("MYTEXT WIDTH: " + myTextWidth);
     console.log("CURR WIDTH: " + currWidth);
-    if(currWidth > textWidth){
+    if(currWidth-50 > textWidth){
         $element.css("width", currWidth-50 + 'px');
+    }
+    else if(currWidth > textWidth) {
+        $element.css("width", textWidth + 'px');
     }
 }
 // Lengthen All
@@ -305,8 +308,8 @@ function lengthenRow($element) {
     console.log("CURR WIDTH: " + currWidth);
     let maxWidth=1000;
     if(currWidth < 1000){
-        Math.max(currWidth+50,maxWidth)
-        $element.css("width", currWidth+50 + 'px');
+        let newWidth = Math.min(currWidth+50,maxWidth)
+        $element.css("width", newWidth + 'px');
     }
 }
 // Custom Text Wood Row
