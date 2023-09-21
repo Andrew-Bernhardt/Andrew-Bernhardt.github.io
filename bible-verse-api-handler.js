@@ -31,7 +31,7 @@ export function getBibleVerseESV(passage="Gal 6:9") {
             'include-footnotes': false,
             'include-verse-numbers': false,
             'include-short-copyright': false,
-            // 'include-passage-references': false
+            'include-passage-references': false
         },
         success: function (data, status, xhr) {
             console.debug("Successful API Call");

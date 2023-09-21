@@ -5,30 +5,48 @@ var $woodBar = $(`  <div class="wood-bar draggable-resizable">
                             </div>`);
 var currentVerse = "";
 var currentVerseTitle = "";
+var currentCustomVerse = "";
 
 
 // Generate ESV Verse
 $(document).ready(async function () {
     $('#generate-btn').on('click', function () {
-        console.log("Generating...");
-        var customVerse = "";
-        customVerse = $("#custom-verse").val().trim();
+        console.log("Generate Button Clicked...");
+        var customVerse = $("#custom-verse").val().trim();
+        if (customVerse == currentCustomVerse) {
+            console.warn("not a new verse! not wasting API calls");
+            return; //already the same verse, no need to call API again
+        }
+        currentCustomVerse = customVerse;
         getBibleVerseESV(customVerse).done(
             function (data) {
-                let verse = data['passages'][0].trim()
+                console.log("API Called");
+                console.log(data);
+                let title = data['canonical'];
+                currentVerseTitle = title;
+                // let title = data['passages'][0].split('\n')[0].trim();
+                let verse = data['passages'][0].trim();
                 currentVerse = verse;
-                console.log(verse);
-                writeTextToWood(verse);
+                writeTextToWood(verse,title);
             }).fail(function () {
-                console.log("booooo");
-            });
-
+                alert("Invalid verse");
+            }
+            );
     })
+    const inputVerse = $("#custom-verse");
+    const submitVerse = $("#generate-btn");
+    inputVerse.keyup(function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            submitVerse.click();
+        }
+    });
 });
 // Generate Random Verse
 $(document).ready(async function () {
     $('#random-verse').on('click', function () {
         console.log("Generating random verse...");
+        currentCustomVerse = "";
         randomVerse().done(
             function (data) {
                 console.log(data);
@@ -198,6 +216,99 @@ $(function () {
         })
     })
 })
+// Shorten all
+$(function () {
+    $('#shorten-all-btn').click(function () {
+        console.log("Shorten Row");
+        let once = false;
+        $('.wood-frame').find('.wood-bar').each(function (index, element) {
+            if(once)
+                return;
+            // Convert this element to a jquery $(element) in order to
+            // use the method resizeRow which calls .find() which only 
+            // works on JQuery elements. So convert it first!
+            shortenRow($(element));
+            once = true;
+        })
+    })
+})
+function shortenRow($element) {
+    var text = $element.find('.handle').text();
+    console.log(text);
+
+    // Get width of text
+    var $tempSpan = $('<span>')
+        .css({
+            whiteSpace: 'nowrap',
+            visibility: 'hidden',
+            position: 'absolute',
+        })
+        .text(text);
+    $('body').append($tempSpan);
+    var textWidth = $tempSpan[0].getBoundingClientRect().width;
+    var myTextWidth = ($element).find("handle").width();
+    console.log(textWidth);
+
+    // I wonder if we could make .handle width to "fit content" 
+    // and then just take the width of that??? using::
+    // .hanlde.getBoundingClientRect()
+
+    // Remove the temporary span element
+    $tempSpan.remove();
+    
+    var currWidth = $element.width();
+    console.log("TEXT WIDTH SPAN: " + textWidth);
+    console.log("MYTEXT WIDTH: " + myTextWidth);
+    console.log("CURR WIDTH: " + currWidth);
+    if(currWidth > textWidth){
+        $element.css("width", currWidth-50 + 'px');
+    }
+}
+// Lengthen All
+$(function () {
+    $('#lengthen-all-btn').click(function () {
+        console.log("Lengthen Row");
+        let once = false;
+        $('.wood-frame').find('.wood-bar').each(function (index, element) {
+            if(once) return;
+            // Convert this element to a jquery $(element) in order to
+            // use the method resizeRow which calls .find() which only 
+            // works on JQuery elements. So convert it first!
+            lengthenRow($(element));
+            once = true;
+        })
+    })
+})
+function lengthenRow($element) {
+    var text = $element.find('.handle').text();
+
+    // Get width of text
+    var $tempSpan = $('<span>')
+        .css({
+            whiteSpace: 'nowrap',
+            visibility: 'hidden',
+            position: 'absolute',
+        })
+        .text(text);
+    $('body').append($tempSpan);
+    var textWidth = $tempSpan[0].getBoundingClientRect().width;
+
+    // I wonder if we could make .handle width to "fit content" 
+    // and then just take the width of that??? using::
+    // .hanlde.getBoundingClientRect()
+
+    // Remove the temporary span element
+    $tempSpan.remove();
+    
+    var currWidth = $element.width();
+    console.log("TEXT WIDTH: " + textWidth);
+    console.log("CURR WIDTH: " + currWidth);
+    let maxWidth=1000;
+    if(currWidth < 1000){
+        Math.max(currWidth+50,maxWidth)
+        $element.css("width", currWidth+50 + 'px');
+    }
+}
 // Custom Text Wood Row
 $(document).ready(function () {
     $("#add-text-btn").click(function () {

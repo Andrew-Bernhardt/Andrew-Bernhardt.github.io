@@ -42,7 +42,6 @@
 }
 
 .letter-container {
-
    display: flex;
    justify-content: center;
    /* align-content: center; */
@@ -108,6 +107,11 @@
    height: 100px;
    background-color: #e0e0e0;
    /* cursor: move; */
+}
+
+input {
+   width: 10vw;
+   border-radius: 2px;
 }
 
 .handle {
