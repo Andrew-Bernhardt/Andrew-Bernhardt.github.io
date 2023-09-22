@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include 'head-template.php' ?>
+    <?php include '../components/head-template.php' ?>
     <title>Andrew Bernhardt</title>
 </head>
 <body>
-    <?php include 'header.php' ?>
+    <?php include '../components/header.php' ?>
     <main> 
         <section class="presentation">
             <div class="introduction">

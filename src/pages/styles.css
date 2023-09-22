@@ -19,6 +19,7 @@
 body {
     font-family: 'Oswald', sans-serif;
     font-family: 'Poppins', sans-serif;
+    /* background-image: url("../images/grid-background.jpg"); */
     /* background: var(--main-bg-color); */
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(32,32,43,1) 0%, rgba(0,80,128,1) 100%, rgba(0,212,255,1) 100%);
     padding-bottom: 25px;
@@ -152,7 +153,7 @@ header ul li {
     text-align: center;
 }
 .grid-job-terminix {
-    background: url("./images/terminix-background.jpg");
+    background: url("../images/terminix-background.jpg");
     background-position: center;
     background-size: cover;
     grid-column: span 1;
@@ -170,7 +171,7 @@ header ul li {
 }
 .grid-job-capgemini {
     background-color: rgba(255, 255, 255, 0.5);
-    background-image: url("./images/capgemini-background.jpg");
+    background-image: url("../images/capgemini-background.jpg");
     background-size: cover;
     grid-row: span 5;
 }
@@ -185,7 +186,7 @@ header ul li {
     background-blend-mode: lighten;
 }
 .grid-job-softdocs {
-    background-image: url("./images/softdocs-background.jpg");
+    background-image: url("../images/softdocs-background.jpg");
     background-color: rgba(138, 22, 153, .61);
     background-size: cover;
     grid-row: span 5;
@@ -216,7 +217,7 @@ header ul li {
     /* align-content: center; */
 }
 .job-prac {
-    background: url("./images/usc-horseshoe-columbia1.jpg");
+    background: url("../images/usc-horseshoe-columbia1.jpg");
     border-radius: var(--usc-border-radius);
     padding: 0px;
     margin: 0px;
@@ -254,7 +255,7 @@ header ul li {
     cursor: pointer;
     transform: scale(1.1);
     /* backdrop-filter: blur(10px); */
-    /* background: url("./images/terminix-background.jpg"); */
+    /* background: url("../images/terminix-background.jpg"); */
 }
 .job-prac p {
     font-size: 20px;
