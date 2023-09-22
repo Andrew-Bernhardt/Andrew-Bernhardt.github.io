@@ -13,16 +13,17 @@
     <div class="btn-container">
         <div class="wood-btn" id="generate-btn">GENERATE</div>
         <input type="text" id="custom-verse">
-        <div class="wood-btn" id="random-verse" placeholder="VERSE">RANDOM VERSE</div>
-        <!-- <div class="wood-btn" id="add-wood-btn">ADD WOOD ROW</div> -->
-        <div class="wood-btn" id="remove-wood-btn">REMOVE LAST WOOD ROW</div>
+        <div class="wood-btn" id="random-verse">RANDOM VERSE</div>
+        <div class="wood-btn" id="random-proverb">RANDOM PROVERB</div>
         <div class="wood-btn" id="remove-all-wood-btn">REMOVE ALL</div>
-        <div class="wood-btn" id="add-text-btn">ADD TEXT</div>
-        <input type="text" id="custom-text" > 
+        
+        
     </div>
-    <div class="wood-frame">
-        <div class="wood-bar draggable-resizable">
-            <div class="handle">BIBLE VERSE WOODWORKING</div>
+    <div class="wood-frame-container">
+        <div class="wood-frame">
+            <div class="wood-bar draggable-resizable">
+                <div class="handle">BIBLE VERSE WOODWORKING</div>
+            </div>
         </div>
     </div>
     <div class="styling-absolute">
@@ -34,6 +35,14 @@
             <div class="style-btn in-dev">LOCK ROW</div>
             <div class="style-btn" id="shorten-all-btn">SHORTEN ROWS</div>
             <div class="style-btn" id="lengthen-all-btn">LENGTHEN ROWS</div>
+        </div>
+        <div class="outdated-controls">
+            <br><br><br><br>
+            <div class="style-btn striped_black" id="outdated-btn">OUTDATED</div>
+            <div class="style-btn" id="remove-wood-btn">RMV LAST WOOD ROW</div>
+            <div class="style-btn" id="add-wood-btn">ADD WOOD ROW</div>
+            <div class="style-btn" id="add-text-btn">ADD TEXT</div>
+            <input class="style-btn" type="text" id="custom-text" > 
         </div>
     </div>
 </body>

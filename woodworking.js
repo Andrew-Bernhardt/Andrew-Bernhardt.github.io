@@ -1,4 +1,4 @@
-import { randomVerse, getBibleVerseRandom, getBibleVerseESV } from './bible-verse-api-handler.js';
+import { randomVerse, getBibleVerseRandom, getBibleVerseESV, getRandomProverbESV } from './bible-verse-api-handler.js';
 var $woodBar = $(`  <div class="wood-bar draggable-resizable">
                                 <div class="handle"></div>
                                 
@@ -27,7 +27,7 @@ $(document).ready(async function () {
                 // let title = data['passages'][0].split('\n')[0].trim();
                 let verse = data['passages'][0].trim();
                 currentVerse = verse;
-                writeTextToWood(verse,title);
+                writeTextToWood(verse, title);
             }).fail(function () {
                 alert("Invalid verse");
             }
@@ -61,9 +61,32 @@ $(document).ready(async function () {
 
     })
 });
+// Generate Random Proverb
+$(document).ready(async function () {
+    $('#random-proverb').on('click', function () {
+        console.log("Random Proverb Generated...");
+        // if (customVerse == currentCustomVerse) {
+        //     console.warn("not a new verse! not wasting API calls");
+        //     return; //already the same verse, no need to call API again
+        // }
+        getRandomProverbESV().done(
+            function (data) {
+                console.log("API Called");
+                console.log(data);
+                let title = data['canonical'];
+                currentVerseTitle = title;
+                // let title = data['passages'][0].split('\n')[0].trim();
+                let verse = data['passages'][0].trim();
+                currentVerse = verse;
+                writeTextToWood(verse, title);
+            }).fail(function () {
+                alert("Invalid verse");
+            }
+            );
+    })
+})
 async function writeTextToWood(verse, title = "404", maxChar = 20) {
     // Clear the canvas and write new
-    console.log("Max Characters: " + maxChar);
     emptyWood();
     writeWoodLine(title, true);
     var list = cutWords(verse, maxChar);
@@ -91,11 +114,12 @@ function cutWords(str, maxChar = 20) {
         }
         let j = Math.min(maxChar - 1, str.length);
         //Start at maxChar length and bring down until we find a space
-        while (str[j] != ' ') {
+        while (str[j] != ' ' && j>=0) {
             j--;
         }
+        console.log(maxChar);
         list.push(str.slice(0, j));
-        str = str.slice(j);
+        str = str.slice(j).trim();
     }
     return list;
 }
@@ -112,7 +136,7 @@ function resizeRow($element, extraWidth = 300) {
         })
         .text(text);
     $('body').append($tempSpan);
-    console.log($tempSpan[0].getBoundingClientRect().width);
+    // console.log($tempSpan[0].getBoundingClientRect().width);
     var textWidth = $tempSpan[0].getBoundingClientRect().width + extraWidth;
     // Remove the temporary span element
     $tempSpan.remove();
@@ -131,6 +155,7 @@ $(document).ready(function () {
         realignVerse()
     })
 });
+// Lighten Button
 // Resizable and Draggable
 function makeResizableAndDraggable($element) {
     $element.draggable({
@@ -220,19 +245,19 @@ $(function () {
 $(function () {
     $('#shorten-all-btn').click(function () {
         console.log("Shorten Row");
-        let once = false;
+        // let once = false;
         $('.wood-frame').find('.wood-bar').each(function (index, element) {
-            if(once)
-                return;
+            // if(once) return;
             // Convert this element to a jquery $(element) in order to
             // use the method resizeRow which calls .find() which only 
             // works on JQuery elements. So convert it first!
             shortenRow($(element));
-            once = true;
+            // once = true;
         })
     })
 })
 function shortenRow($element) {
+    console.log($element);
     var text = $element.find('.handle').text();
     console.log(text);
 
@@ -246,8 +271,10 @@ function shortenRow($element) {
         .text(text);
     $('body').append($tempSpan);
     var textWidth = $tempSpan[0].getBoundingClientRect().width;
-    var myTextWidth = ($element).find("handle").width();
+    var $handle = $element.find('handle');
+    var handleWidth = $handle.width();
     console.log(textWidth);
+    console.log($handle);
 
     // I wonder if we could make .handle width to "fit content" 
     // and then just take the width of that??? using::
@@ -255,15 +282,15 @@ function shortenRow($element) {
 
     // Remove the temporary span element
     $tempSpan.remove();
-    
+
     var currWidth = $element.width();
     console.log("TEXT WIDTH SPAN: " + textWidth);
-    console.log("MYTEXT WIDTH: " + myTextWidth);
+    console.log("HANDLE WIDTH: " + handleWidth);
     console.log("CURR WIDTH: " + currWidth);
-    if(currWidth-50 > textWidth){
-        $element.css("width", currWidth-50 + 'px');
+    if (currWidth - 50 > textWidth) {
+        $element.css("width", currWidth - 50 + 'px');
     }
-    else if(currWidth > textWidth) {
+    else if (currWidth > textWidth) {
         $element.css("width", textWidth + 'px');
     }
 }
@@ -271,14 +298,14 @@ function shortenRow($element) {
 $(function () {
     $('#lengthen-all-btn').click(function () {
         console.log("Lengthen Row");
-        let once = false;
+        // let once = false;
         $('.wood-frame').find('.wood-bar').each(function (index, element) {
-            if(once) return;
+            // if(once) return;
             // Convert this element to a jquery $(element) in order to
             // use the method resizeRow which calls .find() which only 
             // works on JQuery elements. So convert it first!
             lengthenRow($(element));
-            once = true;
+            // once = true;
         })
     })
 })
@@ -302,13 +329,13 @@ function lengthenRow($element) {
 
     // Remove the temporary span element
     $tempSpan.remove();
-    
+
     var currWidth = $element.width();
     console.log("TEXT WIDTH: " + textWidth);
     console.log("CURR WIDTH: " + currWidth);
-    let maxWidth=1000;
-    if(currWidth < 1000){
-        let newWidth = Math.min(currWidth+50,maxWidth)
+    let maxWidth = 1000;
+    if (currWidth < 1000) {
+        let newWidth = Math.min(currWidth + 50, maxWidth)
         $element.css("width", newWidth + 'px');
     }
 }
