@@ -156,6 +156,25 @@ $(document).ready(function () {
     })
 });
 // Lighten Button
+$(document).ready(function () {
+    $("#lighten-btn").click(function () {
+        console.log("Lightening...");
+        lightenVerse();
+    })
+});
+function lightenVerse() {
+    $(".wood-frame").children().css("background-blend-mode" , "lighten")
+}
+// Darken Button 
+$(document).ready(function () {
+    $("#darken-btn").click(function () {
+        console.log("Darkening...");
+        darkenVerse();
+    })
+});
+function darkenVerse() {
+    $(".wood-frame").children().css("background-blend-mode" , "normal")
+}
 // Resizable and Draggable
 function makeResizableAndDraggable($element) {
     $element.draggable({

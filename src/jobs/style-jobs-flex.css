@@ -12,3 +12,11 @@
     padding: 10px;
     flex-direction: column;
 }
+.past-work-container {
+    border: 1px solid black;
+    /* display: block; */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
