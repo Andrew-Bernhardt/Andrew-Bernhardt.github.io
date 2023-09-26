@@ -30,8 +30,8 @@
         <div class="wood-style-controls">
             <div class="style-btn" id="random-resize-btn">RESIZE</div>
             <div class="style-btn" id="random-realign-btn">REALIGN</div>
-            <div class="style-btn in-dev" id="lighten-btn">LIGHTEN</div>
-            <div class="style-btn in-dev" id="darken-btn">DARKEN</div>
+            <div class="style-btn" id="lighten-btn">LIGHTEN</div>
+            <div class="style-btn" id="darken-btn">DARKEN</div>
             <div class="style-btn in-dev">LOCK ROW</div>
             <div class="style-btn" id="shorten-all-btn">SHORTEN ROWS</div>
             <div class="style-btn" id="lengthen-all-btn">LENGTHEN ROWS</div>

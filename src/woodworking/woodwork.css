@@ -44,7 +44,7 @@
    font-family: monospace;
    border: 1px solid black;
    align-self: center;
-   background-blend-mode: lighten;
+   /* background-blend-mode: lighten; */
 }
 
 .wood-bar.dbl {
@@ -209,7 +209,7 @@ input {
 
 #lighten-btn {
    /* background-color: blue; */
-   background-color: rgb(59, 183, 187);
+   background-color: rgb(132, 241, 245);
    background-blend-mode: lighten;
 }
 
