@@ -10,8 +10,8 @@
 </head>
 <body>
     <?php include '../components/header.php'?>
-    <h1>Hi! I'm Andrew!</h1>
-    <div class="body-container">
+    <h1>Andrew's Skills!</h1>
+    <div>
         
     </div>
 </body>

@@ -5,9 +5,9 @@
         <nav>
             <ul>
                 <!-- <li><a class="link-page" href="../landing-pages/home.php">Past Work</a></li> -->
-                <li><a class="link-page" href="../jobs/jobs-flex.php">About Andrew</a></li>
+                <li><a class="link-page" href="../landing-pages/about.php">About Andrew</a></li>
                 <li><a class="link-page" href="../jobs/jobs-grid.php">Past Work</a></li>
-                <li><a class="link-page" href="../landing-pages/home.php">Skills</a></li>
+                <li><a class="link-page" href="../landing-pages/skills.php">Skills</a></li>
                 <li><a class="link-page" href="../jobs/jobs-block.php">Projects</a></li>
                 <li><a class="link-page" href="../jobs/modal-test.php">Styles</a></li>
                 <li><a class="link-page" href="../woodworking/woodworking.php">Woodworking Tool</a></li>

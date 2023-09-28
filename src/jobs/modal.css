@@ -9,6 +9,8 @@
 }
 
 .modal {
+    color: black;
+    text-align: left;
     position: fixed;
     top: 50%;
     left: 50%;
