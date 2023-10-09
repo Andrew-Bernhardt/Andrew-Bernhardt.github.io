@@ -6,6 +6,7 @@
     <title>Past Work</title>
     <link rel="stylesheet" href="modal.css">
     <script defer src="modal.js"></script>
+    <script type="text/javascript" src="../data/firebaseconfig.js"></script>
 </head>
 
 <body>
@@ -47,7 +48,7 @@
             <button data-close-button class="close-modal">&times</button>
         </div>
         <div class="modal-body">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet maiores nobis nihil eius non nemo cum. Sint ut recusandae, placeat rerum veritatis facere fugiat earum delectus aspernatur. Earum praesentium incidunt tempora fuga excepturi sed est deserunt nulla exercitationem tempore. Blanditiis ratione sunt eos corrupti nobis veritatis reiciendis voluptate sequi dolor!
+        <script type="text/javascript"> getJobData(terminix)</script>
         </div>
     </div>
     <div class="modal" id="capgemini-modal">
@@ -57,7 +58,7 @@
             <button data-close-button class="close-modal">&times</button>
         </div>
         <div class="modal-body">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet maiores nobis nihil eius non nemo cum. Sint ut recusandae, placeat rerum veritatis facere fugiat earum delectus aspernatur. Earum praesentium incidunt tempora fuga excepturi sed est deserunt nulla exercitationem tempore. Blanditiis ratione sunt eos corrupti nobis veritatis reiciendis voluptate sequi dolor!
+            <script type="text/javascript"> getJobData(capgemini)</script>
         </div>
     </div>
     <div class="modal" id="softdocs-modal">
@@ -67,7 +68,7 @@
             <button data-close-button class="close-modal">&times</button>
         </div>
         <div class="modal-body">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet maiores nobis nihil eius non nemo cum. Sint ut recusandae, placeat rerum veritatis facere fugiat earum delectus aspernatur. Earum praesentium incidunt tempora fuga excepturi sed est deserunt nulla exercitationem tempore. Blanditiis ratione sunt eos corrupti nobis veritatis reiciendis voluptate sequi dolor!
+        <script type="text/javascript"> getJobData(softdocs)</script>
         </div>
     </div>
     <div class="modal" id="tutoring-modal">
@@ -77,7 +78,7 @@
             <button data-close-button class="close-modal">&times</button>
         </div>
         <div class="modal-body">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet maiores nobis nihil eius non nemo cum. Sint ut recusandae, placeat rerum veritatis facere fugiat earum delectus aspernatur. Earum praesentium incidunt tempora fuga excepturi sed est deserunt nulla exercitationem tempore. Blanditiis ratione sunt eos corrupti nobis veritatis reiciendis voluptate sequi dolor!
+        <script type="text/javascript"> getJobData(tutoring)</script>
         </div>
     </div>
     <div id="overlay"></div>

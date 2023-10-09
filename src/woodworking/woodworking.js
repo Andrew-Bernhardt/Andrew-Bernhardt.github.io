@@ -6,6 +6,7 @@ var $woodBar = $(`  <div class="wood-bar draggable-resizable">
 var currentVerse = "";
 var currentVerseTitle = "";
 var currentCustomVerse = "";
+var lighten = false;
 
 
 // Generate ESV Verse
@@ -91,6 +92,7 @@ async function writeTextToWood(verse, title = "404", maxChar = 20) {
     writeWoodLine(title, true);
     var list = cutWords(verse, maxChar);
     list.forEach((sentence) => writeWoodLine(sentence));
+    if(lighten) lightenVerse();
 }
 async function writeWoodLine(inputString, title = false) {
     var $temp = $woodBar.clone();
