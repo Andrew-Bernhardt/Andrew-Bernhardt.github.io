@@ -42,4 +42,3 @@ var jobObject = {
 function writeJobData(jobObject) {
     const db = getDatabase();
 }
-

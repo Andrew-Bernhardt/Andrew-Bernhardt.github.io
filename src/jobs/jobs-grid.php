@@ -6,8 +6,34 @@
     <title>Past Work</title>
     <link rel="stylesheet" href="modal.css">
     <script defer src="modal.js"></script>
-    <script type="text/javascript" src="../data/firebaseconfig.js"></script>
+    <!-- <script type="text/javascript" src="../data/firebaseconfig.js"></script> -->
+    <script type="text/javascript" src="job-data-calls.ts"></script>
 </head>
+
+<?php
+$hostname = "localhost";
+$username = "root";
+$password = "root";
+$dbName = "job_data";
+
+$conn = new mysqli($hostname, $username, $password, $dbName);
+
+if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
+    echo "no mysql";
+    ?><script>console.error("We don't have mysqli!!!")</script><?php
+} else {
+    echo 'Phew we have it!';
+
+    $conn = new mysqli($hostname, $username, $password, $dbName);
+    if($conn){
+        echo "connected";
+    }else{
+        echo "not connected";
+    }
+}
+
+
+?>
 
 <body>
     <?php include '../components/header.php' ?>
