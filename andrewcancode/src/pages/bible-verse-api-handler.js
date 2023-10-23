@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export function getBibleVerseRandom() {
     // This does not have access to the ESV OR NIV
     let bibleAPI = 'https://api.scripture.api.bible/v1/bibles';
