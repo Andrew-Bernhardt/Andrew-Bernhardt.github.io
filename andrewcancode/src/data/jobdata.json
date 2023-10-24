@@ -1,0 +1,41 @@
+[
+    {
+        "title": "Web Developer",
+        "jobID": 1,
+        "company": "Terminix",
+        "startDate": "August 2023",
+        "finishDate": "Present",
+        "yearsWorked": 1,
+        "isWorking": true,
+        "jobDescription": "A hybrid between the marketing team and the development team",
+        "companyLogoURL": "terminix-logo.png",
+        "companyBackgroundURL": "terminix-background.jpg",
+        "themeColor": "white"
+    },
+    {
+        "jobID": 2,
+        "title:": "Software Engineer Intern",
+        "company:": "Capgemini",
+        "startDate:": "June 2022",
+        "finishDate:": "August 2022",
+        "yearsWorked:": "1",
+        "isWorking:": "false",
+        "jobDescription:": "A hybrid between the marketing team and the development team",
+        "companyLogoURL:": "Capgemini-Logo.png",
+        "companyBackgroundURL:": "capgemini-background.jpg",
+        "themeColor:": "cyan"
+    },
+    {
+        "jobID": 3,
+        "title:": "Software Development Intern",
+        "company:": "Softdocs",
+        "startDate:": "May 2021",
+        "finishDate:": "August 2021",
+        "yearsWorked:": "1",
+        "isWorking:": "false",
+        "jobDescription:": "Software development intern",
+        "companyLogoURL:": "softdocs.png",
+        "companyBackgroundURL:": "softdocs-background.jpg",
+        "themeColor:": "purple"
+    }
+]

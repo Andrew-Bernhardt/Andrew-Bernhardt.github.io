@@ -106,7 +106,7 @@ header ul li {
 }
 /* Grid is created in a 5 column structure */
 .jobs-grid {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     display: grid;
     /* width: 60%; */
     width: min(70%,600px);

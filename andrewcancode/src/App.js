@@ -3,7 +3,7 @@ import Navbar from './components/Navbar.js'
 import { useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 import About from './pages/About'; 
-import PastWork from './pages/PastWork';
+import PastWork from './pages/PastWork.tsx';
 import Skills  from './pages/Skills';
 import WoodWorking  from './pages/WoodWorking';
 import Projects from './pages/Projects';
