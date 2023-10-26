@@ -11,9 +11,6 @@ import Styles from './pages/Styles';
 
 
 function App() {
-  useEffect(() => {
-    document.title = "My app"
-  }, [])
   return (
     <div className="App">
       <Navbar/>
@@ -28,7 +25,6 @@ function App() {
         </Routes>
 
       </div>
-      
     </div>
   );
 }

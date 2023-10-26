@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import JobCardModal from '../components/JobCardModal';
 import './PastWork.css';
 import { Job } from '../models/Job';
+import jobData from '../data/jobdata.json'
 
 const jobTerminix: Job = {
   jobID: 1,
@@ -30,24 +31,34 @@ const jobSoftdocs: Job = {
   themeColor: "purple"
 }
 
+function JsonToJob(jsonData) {
+  let jobArray = [];
+  var job: Job;
+  
+  //loop through json
+  job = {
+    jobID: 2, //jobID: jsonData[0]["jobID"]
+    title: "Software Development Intern",
+    company: "Softdocs",
+    startDate: "May 2021",
+    finishDate: "August 2021",
+    yearsWorked: 1,
+    isWorking: true,
+    jobDescription: "A hybrid between the marketing team and the development team",
+    companyLogoURL: "softdocs.png",
+    companyBackgroundURL: "softdocs-background.jpg",
+    themeColor: "purple"
+  }
+
+  return jobArray;
+}
+
 export default function PastWork() {
 
   const[jobs, setJobs] = useState([jobTerminix]);
   const[isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async() => {
-      try {
-        const response = await fetch(`../data/jobdata.json`)
-        const data = await response.json();
-        console.log(data)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-    fetchData()
-  },[])
-
+  console.log(jobData);
 
   return (
     <div className="jobs-grid">
