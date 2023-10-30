@@ -142,6 +142,7 @@ header ul li {
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
+    /* grid-row: span 10; */
 }
 .job-grid-item img {
     border-radius: 10px;
@@ -179,7 +180,7 @@ header ul li {
     background: url("../images/terminix-background.jpg");
     background-position: center;
     background-size: cover;
-    grid-column: span 1;
+    /* grid-column: span 1; */
     grid-row: span 7;
 }
 .job-info:hover {

@@ -25,7 +25,7 @@
         "jobDescription": "A hybrid between the marketing team and the development team",
         "companyLogoURL": "Capgemini-Logo.png",
         "companyBackgroundURL": "capgemini-background.jpg",
-        "themeColor": "cyan",
+        "themeColor": "white",
         "rowWeight": 5,
         "columnWeight": 1
     },
@@ -41,6 +41,21 @@
         "companyLogoURL": "softdocs.png",
         "companyBackgroundURL": "softdocs-background.jpg",
         "themeColor": "purple",
+        "rowWeight": 5,
+        "columnWeight": 1
+    },
+    {
+        "jobID": 4,
+        "title": "Peer Tutor",
+        "company": "Softdocs",
+        "startDate": "May 2021",
+        "finishDate": "August 2021",
+        "yearsWorked": "1",
+        "isWorking": "false",
+        "jobDescription": "Software development intern",
+        "companyLogoURL": "usc_logo.png",
+        "companyBackgroundURL": "usc-horseshoe-columbia1.jpg",
+        "themeColor": "",
         "rowWeight": 3,
         "columnWeight": 1
     }

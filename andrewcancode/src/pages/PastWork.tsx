@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import JobCardModal from '../components/JobCardModal';
+import JobCard from '../components/JobCard';
 import './PastWork.css';
 import { Job } from '../models/Job';
 import jobData from '../data/jobdata.json'
+import JobModal from '../components/JobModal';
 
 
 function JsonToJob(jsonData) {
-  let jobArray = [];
-  var job: Job;
+  const jobArray: Job[] = [];
+  let job: Job;
   
   //loop through json element
   jsonData.forEach(element => {
@@ -43,12 +44,13 @@ export default function PastWork() {
   // }, []);
 
   return (
-    <div className="jobs-grid">
-      {jobs.map((item) => (
-        <div key={item.jobID}> 
-          <JobCardModal career={item} gridSettings={[2,5]}/>
-        </div>
-      ))}
+    <div>
+      <JobModal/>
+      <div className="jobs-grid">
+        {jobs.map((item: Job) => (
+            <JobCard key={item.jobID} career={item} gridSettings={[item.columnWeight,item.rowWeight]}/>
+        ))}
+      </div>
     </div>
   )
 }
