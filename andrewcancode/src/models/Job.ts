@@ -10,4 +10,6 @@ export type Job = {
     companyLogoURL: string;
     companyBackgroundURL: string;
     themeColor: string;
+    rowWeight: number;
+    columnWeight: number;
 }
