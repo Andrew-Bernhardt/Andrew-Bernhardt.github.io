@@ -8,6 +8,10 @@
     --global--modal-border: cyan;
 }
 
+.child-inherit {
+    all: inherit;
+}
+
 .job-grid-item {
     border: 1px solid cyan;
     /* display: flex; */
@@ -68,17 +72,12 @@
     background-color: white;
     border: 2px solid var(--global--modal-border);
     border-radius: 10px;
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(1);
     transition: 200ms ease-in-out;
     width: 800px;
     height: 500px;
     max-width: 80%;
 }
-
-.modal.active {
-    transform: translate(-50%, -50%) scale(1);
-}
-
 .modal .modal-header {
     border-bottom: 1px solid var(--global--modal-border);
     display: flex;
@@ -96,43 +95,6 @@
     left: 50%;
     transform: translate(-50%, 0%);
     height: 50px;
-}
-
-.modal .modal-header .close-modal {
-    width: 30px;
-    cursor: pointer;
-    border: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    background: none;
-    outline: none;
-}
-
-.modal .modal-body {
-    font-size: 1rem;
-    padding: 10px 15px;
-}
-
-#overlay {
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
-    pointer-events: none;
-}
-
-#overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.softdocs-img {
-    padding: 5px;
     border-radius: 10px;
-    background: #9660bd;
-    background-image: url("../images/usc_logo.png")
+    padding: 5px;
 }

@@ -1,10 +1,18 @@
 import { Job } from '../models/Job'
 import './JobCard.css'
 import React, { useState } from 'react'
+import JobModal from './JobModal';
 
 
-export default function JobCard({ career, gridSettings, isOpen=false }) {
-  
+export default function JobCard({ career, gridSettings, onClickCallBack}) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const cardStyle = {
     backgroundImage : `url(${career.companyBackgroundURL})`,
@@ -12,12 +20,26 @@ export default function JobCard({ career, gridSettings, isOpen=false }) {
     gridColumn: `span ${gridSettings[0]}`,
     gridRow: `span ${gridSettings[1]}`,
   }
+
+  const handleClick = () => {
+    // Execute the callback function passed from MyClass
+    if (onClickCallback) {
+      onClickCallback();
+    }
+  };
+
   return (
-      <button className="job-grid-item" id={career.jobID} style={cardStyle}>
+    
+      <div className="job-grid-item" id={career.jobID} style={cardStyle} onClick={handleClick}>
         <img src={require(`../images/${career.companyLogoURL}`)} alt="my bad" style={{backgroundColor: career.themeColor}}/>      
         <h3 className="grid-job-title">{career.title}</h3>
         <h3>{career.startDate} - {career.finishDate}</h3>
-      </button> 
+      </div>  
+      /* <div>
+        {isModalOpen && (
+          <JobModal job={career} closeModal={closeModal} />
+        )}
+      </div>   */    
 
   )
 
