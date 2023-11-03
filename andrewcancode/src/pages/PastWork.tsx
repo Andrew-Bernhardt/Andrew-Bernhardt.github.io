@@ -4,7 +4,6 @@ import './PastWork.css';
 import { Job } from '../models/Job';
 import jobData from '../data/jobdata.json'
 import JobModal from '../components/JobModal';
-import JobModal2 from '../components/JobModal2';
 
 let job: Job;
 function JsonToJob(jsonData) {
@@ -36,8 +35,6 @@ function JsonToJob(jsonData) {
 
 export default function PastWork() {
 
-  console.log(JsonToJob(jobData));
-
   const[jobs, setJobs] = useState(JsonToJob(jobData));
   const[counter, setCounter] = useState(0);
   const[modal, setModal] = useState(job);
@@ -50,11 +47,14 @@ export default function PastWork() {
     setCounter(counter + 1);
   }
 
+  const openTheModal = () => {
+    setModal2Open(true);
+  };
+
   const closeTheModal = () => {
     setModal2Open(false);
   }
 
-  // if(modal==null)
   return (
     <>
       <div className="jobs-grid">
@@ -65,11 +65,12 @@ export default function PastWork() {
           <h1>{counter}</h1>
         </div>
       </div>
-      <div>
-        {modal2Open && (
-          <JobModal job={modal} closeModal={closeTheModal}/>
-        )}
-      </div>
+      {modal2Open && (
+        <div>
+          <div className="modal-box" onClick={closeTheModal}></div>
+          <JobModal job={modal} closeModal={closeTheModal} customClass={modal2Open ? 'modal-fade-in active' : 'modal-fade-in'}/>
+        </div>
+      )}
     </>
   )
 }
