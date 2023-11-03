@@ -4,15 +4,7 @@ import React, { useState } from 'react'
 import JobModal from './JobModal';
 
 
-export default function JobCard({ career, gridSettings, onClickCallBack}) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+export default function JobCard({ career, gridSettings, onClickCallback}) {
 
   const cardStyle = {
     backgroundImage : `url(${career.companyBackgroundURL})`,
@@ -24,7 +16,7 @@ export default function JobCard({ career, gridSettings, onClickCallBack}) {
   const handleClick = () => {
     // Execute the callback function passed from MyClass
     if (onClickCallback) {
-      onClickCallback();
+      onClickCallback(career);
     }
   };
 

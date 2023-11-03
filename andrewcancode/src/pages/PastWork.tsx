@@ -37,35 +37,37 @@ function JsonToJob(jsonData) {
 export default function PastWork() {
 
   console.log(JsonToJob(jobData));
-  const[jobs, setJobs] = useState(JsonToJob(jobData));
 
+  const[jobs, setJobs] = useState(JsonToJob(jobData));
   const[counter, setCounter] = useState(0);
-  const handleMyComponentClick = () => {
+  const[modal, setModal] = useState(job);
+  const[modal2Open, setModal2Open] = useState(false);
+
+  const handleMyComponentClick = (job1: Job) => {
+    console.log(job1);
+    setModal2Open(true);
+    setModal(job1);
     setCounter(counter + 1);
   }
 
-  const[modal, setModal] = useState(null);
-  const[modal2Open, setModal2Open] = useState(false);
-
-  const removeModal = () => {
-    console.log("removing modal");
-    setModal(null)
-  }
-  const callModal = () => {
-    console.log("clicked");
+  const closeTheModal = () => {
+    setModal2Open(false);
   }
 
-  if(modal==null)
+  // if(modal==null)
   return (
     <>
       <div className="jobs-grid">
         {jobs.map((item: Job) => (
-            <JobCard key={item.jobID} career={item} gridSettings={[item.columnWeight,item.rowWeight]} onClickCallBack={handleMyComponentClick}/>
+            <JobCard key={item.jobID} career={item} gridSettings={[item.columnWeight,item.rowWeight]} onClickCallback={handleMyComponentClick}/>
         ))}
+        <div>
+          <h1>{counter}</h1>
+        </div>
       </div>
       <div>
         {modal2Open && (
-          <JobModal2 job={modal}/>
+          <JobModal job={modal} closeModal={closeTheModal}/>
         )}
       </div>
     </>
