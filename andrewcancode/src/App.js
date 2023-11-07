@@ -8,6 +8,7 @@ import Skills  from './pages/Skills';
 import WoodWorking  from './pages/WoodWorking';
 import Projects from './pages/Projects';
 import Styles from './pages/Styles';
+import './styles/styles.css'
 
 
 function App() {

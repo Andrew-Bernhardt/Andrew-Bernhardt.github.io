@@ -1,0 +1,36 @@
+[
+    {
+        "type": "Front End",
+        "skills" : [
+            "Javascript",
+            "Typescript",
+            "CSS",
+            "HTML",
+            "React",
+            "Jest",
+            "Ionic"
+        ]
+    },
+    {
+        "type": "Back End",
+        "skills" : [
+            "Java",
+            "Spring Boot",
+            "C#",
+            "Python",
+            "PHP",
+            "SQL",
+            "Postman",
+            "C++"
+        ]
+    },
+    {
+        "type": "Soft Skills",
+        "skills" : [
+            "Leadership",
+            "Administration",
+            "Communication",
+            "Dad jokes"
+        ]
+    }
+]

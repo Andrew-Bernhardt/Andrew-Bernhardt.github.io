@@ -2,6 +2,7 @@ export type Job = {
     jobID: number;
     title: string;
     company: string;
+    location: string;
     startDate: string;
     finishDate: string;
     yearsWorked: number;
@@ -9,6 +10,7 @@ export type Job = {
     jobDescription: string;
     companyLogoURL: string;
     companyBackgroundURL: string;
+    backgroundColor: string;
     themeColor: string;
     rowWeight: number;
     columnWeight: number;

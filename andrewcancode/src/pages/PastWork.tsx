@@ -9,7 +9,6 @@ let job: Job;
 function JsonToJob(jsonData) {
   const jobArray: Job[] = [];
   
-
   //loop through json element
   jsonData.forEach(element => {
     console.log(element);
@@ -17,6 +16,7 @@ function JsonToJob(jsonData) {
       jobID: element["jobID"], 
       title: element["title"],
       company: element["company"],
+      location: element["location"],
       startDate: element["startDate"],
       finishDate: element["finishDate"],
       yearsWorked: element["yearsWorked"],
@@ -24,6 +24,7 @@ function JsonToJob(jsonData) {
       jobDescription: element["jobDescription"],
       companyLogoURL: element["companyLogoURL"],
       companyBackgroundURL: element["companyBackgroundURL"],
+      backgroundColor: element["backgroundColor"],
       themeColor: element["themeColor"],
       rowWeight: element["rowWeight"],
       columnWeight: element["columnWeight"]
