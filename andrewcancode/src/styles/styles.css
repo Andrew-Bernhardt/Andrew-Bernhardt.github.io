@@ -18,6 +18,14 @@
     padding: 20px; /* Add some padding for spacing */
 }
 
+.justify-content_left {
+    justify-content: left;
+}
+
+.flex-direction_column {
+    flex-direction: column;
+}
+
 
 @media(max-width: 600px) {
     body {

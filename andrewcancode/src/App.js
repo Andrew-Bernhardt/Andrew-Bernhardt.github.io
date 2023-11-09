@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 import About from './pages/About'; 
 import PastWork from './pages/PastWork.tsx';
-import Skills  from './pages/Skills';
+import Skills  from './pages/Skills.tsx';
 import WoodWorking  from './pages/WoodWorking';
 import Projects from './pages/Projects';
 import Styles from './pages/Styles';
