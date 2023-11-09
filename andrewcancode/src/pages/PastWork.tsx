@@ -4,6 +4,7 @@ import './PastWork.css';
 import { Job } from '../models/Job';
 import jobData from '../data/jobdata.json'
 import JobModal from '../components/JobModal';
+import FadeInSection from '../components/FadeInSection';
 
 let job: Job;
 function JsonToJob(jsonData) {
@@ -58,19 +59,19 @@ export default function PastWork() {
 
   return (
     <>
-      <div className="jobs-grid">
-        {jobs.map((item: Job) => (
-            <JobCard key={item.jobID} career={item} gridSettings={[item.columnWeight,item.rowWeight]} onClickCallback={handleMyComponentClick}/>
-        ))}
-        <div>
-          <h1>{counter}</h1>
+      <FadeInSection>
+        <div className="jobs-grid">
+          {jobs.map((item: Job) => (
+              <JobCard key={item.jobID} career={item} gridSettings={[item.columnWeight,item.rowWeight]} onClickCallback={handleMyComponentClick}/>
+          ))}
         </div>
-      </div>
+      </FadeInSection>
       {modal2Open && (
         <div>
           <div className="modal-box" onClick={closeTheModal}></div>
           <JobModal job={modal} closeModal={closeTheModal} customClass={modal2Open ? 'modal-fade-in active' : 'modal-fade-in'}/>
         </div>
+        
       )}
     </>
   )

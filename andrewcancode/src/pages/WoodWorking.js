@@ -5,6 +5,7 @@ import 'jquery-ui-dist/jquery-ui'
 import { useEffect } from 'react'
 import { getBibleVerseESV, getBibleVerseRandom, getRandomProverbESV, randomVerse } from './bible-verse-api-handler';
 import './woodwork.css';
+import FadeInSection from '../components/FadeInSection';
 
 export default class WoodWorking extends Component {
   componentDidMount() {
@@ -398,6 +399,7 @@ export default class WoodWorking extends Component {
   render() {
     return (
       <>
+      <FadeInSection>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" type="text/javascript"></script>
         <title>Woodwork</title>
@@ -442,6 +444,7 @@ export default class WoodWorking extends Component {
             <input className="style-btn" type="text" id="custom-text" />
           </div>
         </div>
+        </FadeInSection>
       </>
     )
   }

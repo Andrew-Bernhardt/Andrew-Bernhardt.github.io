@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import SkillGroup from '../components/SkillGroup';
 import jsonData from '../data/skills.json'
+import FadeInSection from '../components/FadeInSection';
 
 function JsonToSkills(jsonData) {
-
   var _skillSet: string[][] = [];
 
   //loop through json element
@@ -17,10 +17,7 @@ function JsonToSkills(jsonData) {
     });
 
     _skillSet.push(skill);
-    console.log("Assembling skillset: "+_skillSet);
   });
-  console.log("this is what is being returned: ");
-  console.log(_skillSet);
 
   return _skillSet;
 }
@@ -28,14 +25,17 @@ function JsonToSkills(jsonData) {
 export default function Skills() {
   
   const [skillSet,setSkillSet] = useState(JsonToSkills(jsonData))
-  console.log(skillSet);
-  console.log(skillSet[0][0]);
 
   return (
     <div className="centered-container justify-content_left flex-direction_column">
-        {/* {skillSet.map((skillGroup) => (          
-          <SkillGroup key={skillGroup[0]} group={skillGroup[0]}/>
-        ))} */}
+      <FadeInSection> 
+        {skillSet.map((skillGroup) => (  
+            
+              <SkillGroup key={skillGroup[0]} group={skillGroup}/>
+             
+        ))}
+      </FadeInSection>
+      
     </div>
   )
 }

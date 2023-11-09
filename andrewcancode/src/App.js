@@ -9,6 +9,7 @@ import WoodWorking  from './pages/WoodWorking';
 import Projects from './pages/Projects';
 import Styles from './pages/Styles';
 import './styles/styles.css'
+import FadeInSection from './components/FadeInSection.jsx';
 
 
 function App() {
@@ -24,7 +25,6 @@ function App() {
           <Route path="/styles" element={<Styles/>}/>
           <Route path="/woodworking" element={<WoodWorking/>}/>
         </Routes>
-
       </div>
     </div>
   );

@@ -1,7 +1,10 @@
 import React from 'react'
+import FadeInSection from '../components/FadeInSection'
 
 export default function Styles() {
   return (
-    <div>Styles</div>
+    <FadeInSection>
+      <div>Styles</div>
+    </FadeInSection>
   )
 }
