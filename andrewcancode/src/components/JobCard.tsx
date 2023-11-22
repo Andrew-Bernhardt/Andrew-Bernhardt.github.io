@@ -20,8 +20,9 @@ export default function JobCard({ career, gridSettings, onClickCallback}) {
     }
   };
 
+  console.log(`url(${career.companyBackgroundURL})`);
+
   return (
-    
       <div className="job-grid-item" id={career.jobID} style={cardStyle} onClick={handleClick}>
         <img src={require(`../images/${career.companyLogoURL}`)} alt="my bad" style={{backgroundColor: career.backgroundColor}}/>      
         <h3 className="grid-job-title">{career.title}</h3>
