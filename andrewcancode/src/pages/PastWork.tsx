@@ -12,7 +12,7 @@ function JsonToJob(jsonData) {
   
   //loop through json element
   jsonData.forEach(element => {
-    console.log(element);
+    // console.log(element);
     job = {
       jobID: element["jobID"], 
       title: element["title"],
