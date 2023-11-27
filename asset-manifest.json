@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/resume-website/static/css/main.ecabbae9.css",
+    "main.css": "/resume-website/static/css/main.cdd9022d.css",
     "main.js": "/resume-website/static/js/main.e9181b11.js",
     "static/media/grid-background.jpg": "/resume-website/static/media/grid-background.0158c5e020c77ff0f6cd.jpg",
     "static/media/terminix.jpg": "/resume-website/static/media/terminix.889116d2beaaf48837f8.jpg",
@@ -17,11 +17,11 @@
     "static/media/usc_logo.png": "/resume-website/static/media/usc_logo.1dacb428780f1b25e589.png",
     "static/media/softdocs.png": "/resume-website/static/media/softdocs.673860b4773a9466181d.png",
     "index.html": "/resume-website/index.html",
-    "main.ecabbae9.css.map": "/resume-website/static/css/main.ecabbae9.css.map",
+    "main.cdd9022d.css.map": "/resume-website/static/css/main.cdd9022d.css.map",
     "main.e9181b11.js.map": "/resume-website/static/js/main.e9181b11.js.map"
   },
   "entrypoints": [
-    "static/css/main.ecabbae9.css",
+    "static/css/main.cdd9022d.css",
     "static/js/main.e9181b11.js"
   ]
 }
