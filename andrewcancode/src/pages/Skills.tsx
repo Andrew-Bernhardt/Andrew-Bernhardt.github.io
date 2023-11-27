@@ -30,9 +30,7 @@ export default function Skills() {
     <div className="centered-container justify-content_left flex-direction_column">
       <FadeInSection> 
         {skillSet.map((skillGroup) => (  
-            
               <SkillGroup key={skillGroup[0]} group={skillGroup}/>
-             
         ))}
       </FadeInSection>
       
